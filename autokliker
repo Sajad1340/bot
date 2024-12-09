@@ -1,0 +1,25 @@
+import pyautogui
+import time
+
+def auto_clicker(interval, duration):
+    """
+    Автокликер.
+    
+    :param interval: Интервал между кликами в секундах.
+    :param duration: Длительность работы автокликера в секундах.
+    """
+    print("Автокликер запущен. Нажмите Ctrl+C, чтобы остановить.")
+    start_time = time.time()
+    
+    try:
+        while time.time() - start_time < duration:
+            pyautogui.click()
+            time.sleep(interval)
+    except KeyboardInterrupt:
+        print("\nАвтокликер остановлен.")
+
+# Параметры автокликера
+click_interval = 0.1  # Интервал между кликами (в секундах)
+run_duration = 10     # Время работы автокликера (в секундах)
+
+auto_clicker(click_interval, run_duration)
